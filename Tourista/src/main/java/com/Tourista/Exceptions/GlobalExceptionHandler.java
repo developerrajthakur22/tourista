@@ -21,4 +21,14 @@ public class GlobalExceptionHandler {
 		 return new ResponseEntity<ErrorDetails>(ed, HttpStatus.BAD_REQUEST);
 	}
 	
+	@ExceptionHandler(NotFoundException.class)
+	public ResponseEntity<ErrorDetails> notFoundExceptionHandler(NotFoundException ex, WebRequest we){
+		ErrorDetails ed = new ErrorDetails();
+		 ed.setTimestamp(LocalDateTime.now());
+		 ed.setMessage(ex.getMessage());
+		 ed.setDescription(we.getDescription(false));
+		 
+		 return new ResponseEntity<ErrorDetails>(ed, HttpStatus.BAD_REQUEST);
+	}
+	
 }
