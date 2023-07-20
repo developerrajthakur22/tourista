@@ -1,4 +1,4 @@
-package com.Tourista.Exceptions;
+package app.trip.exceptions;
 
 public class BookingException extends Exception{
 
