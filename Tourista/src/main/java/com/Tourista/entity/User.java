@@ -1,4 +1,4 @@
-package com.Tourista.entity;
+package com.Tourista.Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
