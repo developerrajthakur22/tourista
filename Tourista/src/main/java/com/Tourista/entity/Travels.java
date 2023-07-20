@@ -1,4 +1,4 @@
-package com.Tourista.entity;
+package com.Tourista.Entity;
 
 public class Travels {
 	private int travelId;

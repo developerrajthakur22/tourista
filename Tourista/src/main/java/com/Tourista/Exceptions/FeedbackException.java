@@ -1,4 +1,4 @@
-package app.trip.exceptions;
+package com.Tourista.Exceptions;
 
 public class FeedbackException extends Exception{
 	

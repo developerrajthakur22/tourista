@@ -1,4 +1,4 @@
-package com.Tourista.entity;
+package com.Tourista.Entity;
 
 import com.Tourista.enumtype.EnumHotelType;
 
