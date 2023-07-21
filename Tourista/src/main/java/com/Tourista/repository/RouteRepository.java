@@ -1,9 +1,10 @@
-package com.Tourista.repository;
+package app.trip.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.Tourista.entity.Route;
+import app.trip.models.Route;
 
-public interface RouteRepository extends JpaRepository<Route, Integer>{
 
+public interface RouteRepository extends JpaRepository<Route, Integer> {
+	
 }
