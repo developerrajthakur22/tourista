@@ -1,0 +1,32 @@
+employeeFactory.prototype.getInfo = function(){
+    console.log(`${this.name}'s salary is ${this.salary}`)
+}
+
+employeeFactory.prototype.setSalary = function(amt){
+    this.salary = amt   
+}
+
+function employeeFactory(name,salary){
+    let empObj = {};
+
+    Object.setPrototypeOf(empObj,employeeFactory.prototype)
+    empObj.name = name;
+    empObj.salary = salary
+    return empObj
+}
+
+let emp = employeeFactory("Rutwik",40000)
+
+Object.setPrototypeOf(engineerFactory.prototype,employeeFactory.prototype)
+
+employeeFactory.prototype.changeDepartment = function(dep){
+    this.department = dep
+}
+function engineerFactory(dept){
+    engOBj = {};
+    Object.setPrototypeOf(engOBj,engineerFactory.prototype)
+
+    engOBj.department = dept
+    return engOBj
+}
+
