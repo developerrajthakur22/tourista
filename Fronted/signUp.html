@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address</title>
+</head>
+<link rel="stylesheet" href="signUp.css">
+<body>
+    <div class="navbar">
+        <div><img src="./bazaar.png" alt="Touristo"></div>
+    </div>
+    <hr>
+    <div class="center">
+        <button id="show-login">Login</button>
+    </div>
+    <div class="popup">
+        <!-- <div id="banner"><img src="https://images.meesho.com/images/marketing/1661417516766.webp" alt="image"></div> -->
+        <div class="form">
+            <h2>Sign up</h2>
+            <div class="form-element">
+                <label for="name">Username</label>
+                <input type="text" placeholder="Enter your Username" id="name">
+            </div>
+            <div class="form-element">
+                <label for="email">Email</label>
+                <input type="email" placeholder="Enter your email here" id="email">
+            </div>
+            <div class="form-element">
+                <label for="password">Password</label>
+                <input type="password"  id="password" placeholder="Enter your password here">
+            </div>
+            <div class="form-element">
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">Remember me</label>
+            </div>
+            <div class="form-element">
+                <button id="btn">Sign up</button>
+            </div>
+            <div class="form-element" id="already">
+                <span>Already a customer? </span>
+                <a href="./signIn.html">Log in</a>
+            </div>
+        </div>
+    </div>
+    <div id="pop">SignUp successful</div>
+</body>
+<script src="./scripts/signUp.js"></script>
+</html>
