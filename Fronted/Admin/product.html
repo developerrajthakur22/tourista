@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link  rel="icon" href="./image/favicon.png" type="image/x-icon" >
+ 
+</head>
+    <link rel="stylesheet" href="./product.css">
+
+
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"><img src="./tripoto.svg" alt="logo"></span>
+                        <!-- <span class="title" id="iconTitle">quickdeals</span> -->
+                    </a>
+                </li>
+                <li>
+                    <a href="./admin.html">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                        <span class="title">Customers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="icon"><ion-icon name="cart-outline"></ion-icon></span>
+                        <span class="title">Product</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="chatbubbles-outline"></ion-icon></span>
+                        <span class="title">Message</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                        <span class="title">Password</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Fronted/signIn.html">
+                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+                <div class="search">
+                    <label>
+                        <form><input type="text" placeholder="Search here" id="search"></form>
+                        <ion-icon name="search-outline" id="searchIcon"></ion-icon>
+                    </label>
+                </div>
+                <!-- user image -->
+                <div class="user">
+                    <img src="./user.jpg" alt="">
+                </div>
+            </div>
+            <!-- cards -->
+            <div class="cardBox">
+                <div class="card" id="busBtn">
+                    <div>
+                        <div class="numbers">Add Bus</div>
+                    </div>
+                    <div class="iconBx">
+                        <ion-icon name="bus-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="card" id="addBtn">
+                    <div>
+                        <div class="numbers">Add Hotel</div>
+                    </div>
+                    <div class="iconBx">
+                        <ion-icon name="add-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">Add Package</div>
+                    </div>
+                    <div class="iconBx">
+                        <!-- <ion-icon name="cart-outline"></ion-icon> -->
+                    </div>
+                </div>
+            </div>
+            <!-- order details list -->
+
+            <div class="popup">
+                <button class="close">&times;</button>
+                <h2>Add Hotel</h2>
+                <form id="addHotel">
+                    <div><input type="text" id="hotelName" placeholder="Please enter the name"></div>
+
+                    <div><input type="text" id="hotelCategory" placeholder="Please enter hotel category"></div>
+
+                    <div><input type="text" id="hotelDesc" placeholder="Please enter hotel description"></div>
+
+                    <div><input type="text" id="hotelAddress" placeholder="Please enter hotel address"></div>
+                    
+                    <div><input type="number" id="hotelRent" placeholder="Please enter rent"></div>
+
+                    <div><input type="text" id="hotelStatus" placeholder="Please enter hotel status"></div>
+
+                    <button id="addHotelBtn">Add Hotel</button>
+                </form>
+            </div>
+            <!-- Bus pop up -->
+            <div class="popup2">
+                <button id="close2">&times;</button>
+                <h2>Add Hotel</h2>
+                <form id="addBus">
+                    <div><input type="text" id="busType" placeholder="Please enter the type of bus"></div>
+
+                    <div><input type="number" id="busCapacity" placeholder="Please enter bus category"></div>
+
+                    <div><input type="number" id="busFare" placeholder="Please enter bus fare"></div>
+
+                    <button id="addBusBtn">Add Bus</button>
+                </form>
+            </div>
+
+            <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Recent Orders</h2>
+                        <!-- <a href="#" class="btn">View All</a> -->
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>Price</td>
+                                <td>id</td>
+                                <td>Status</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Star Refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            </tr>
+                            <tr>
+                                <td>TV</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span><select name="status" id="status">
+                                    <option value="delivered">Delivered</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="progress">In progress</option>
+                                    <option value="return">Return</option>
+                                </select></span></td>
+                            </tr>
+                            <tr>
+                                <td>Dell Laptop</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td>
+                                    <span>
+                                        <select name="status" id="status">
+                                            <option value="delivered">Delivered</option>
+                                            <option value="pending">Pending</option>
+                                            <option value="progress">In progress</option>
+                                            <option value="return">Return</option>
+                                        </select>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SmartPhone</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status return">Return</span></td>
+                            </tr>
+                            <tr>
+                                <td>Camerea</td>
+                                <td>$1200</td>
+                                <td>Paid</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="./product.js"></script>
+<script src="./dashboard.js"></script>
+</html>

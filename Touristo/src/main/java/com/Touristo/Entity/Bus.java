@@ -11,16 +11,23 @@ public class Bus {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int busId;
-	
+
 	private String busType;
-	
+
 	private int capacity;
-	
+
 	private double fare;
 
 	public Bus() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public Bus(String busType, int capacity, double fare) {
+		super();
+		this.busType = busType;
+		this.capacity = capacity;
+		this.fare = fare;
 	}
 
 	public String getBusType() {
@@ -54,7 +61,5 @@ public class Bus {
 	public void setFare(double fare) {
 		this.fare = fare;
 	}
-	
-	
-	
+
 }

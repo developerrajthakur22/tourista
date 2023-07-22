@@ -36,6 +36,19 @@ public class Hotel {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+
+	public Hotel(String hotelname, String hotelType, String hotelDescription, String hotelAddress, double rent,
+			String status) {
+		super();
+		this.hotelname = hotelname;
+		this.hotelType = hotelType;
+		this.hotelDescription = hotelDescription;
+		this.hotelAddress = hotelAddress;
+		this.rent = rent;
+		this.status = status;
+	}
+
 
 	public int getHotelId() {
 		return hotelId;
