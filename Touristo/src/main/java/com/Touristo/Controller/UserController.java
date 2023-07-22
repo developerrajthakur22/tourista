@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,12 +18,14 @@ import com.Touristo.Entity.Bus;
 import com.Touristo.Entity.Customer;
 import com.Touristo.Entity.Hotel;
 import com.Touristo.Entity.Packages;
+import com.Touristo.Entity.Route;
 import com.Touristo.Entity.Ticket;
 import com.Touristo.Exception.NotFoundException;
 import com.Touristo.Exception.TouristoException;
 import com.Touristo.Service.UserServices;
 
 @RestController
+@CrossOrigin(origins = "*") 
 public class UserController {
 
 	@Autowired
@@ -83,6 +87,7 @@ public class UserController {
     	return new ResponseEntity<Booking>(booked, HttpStatus.ACCEPTED);
     }
   
+    
     //Package Booking    
     @PostMapping(value = "/bookPackage/{customerId}/{packageId}")
     public ResponseEntity<Booking> bookingPackage(@PathVariable int customerId, @PathVariable int packageId){
@@ -97,5 +102,32 @@ public class UserController {
     	return new ResponseEntity<Ticket>(ticket, HttpStatus.ACCEPTED);
     }
     
+    //Delete Hotel Booking
+    @DeleteMapping(value = "DeleteHotelBooking/{bookingID}")
+    public ResponseEntity<String> deleteHotelBooking(@PathVariable int bookingID){
+    	userServices.cancelHotelBooking(bookingID);
+    	return new ResponseEntity<String>("Booking Deleted", HttpStatus.ACCEPTED);
+    }
+    
+  //Delete Package Booking
+    @DeleteMapping(value = "DeletePackageBooking/{bookingID}")
+    public ResponseEntity<String> deletePackageBooking(@PathVariable int bookingID){
+    	userServices.cancelPackageBooking(bookingID);
+    	return new ResponseEntity<String>("Booking Deleted", HttpStatus.ACCEPTED);
+    }
+    
+    //Delete Ticket
+    @DeleteMapping(value = "DeleteTicket/{ticketId}")
+    public ResponseEntity<String> deleteTicket(@PathVariable int ticketId){
+    	userServices.cancelTicket(ticketId);
+    	return new ResponseEntity<String>("Ticket Deleted", HttpStatus.ACCEPTED);
+    }
+    
+   //Route Adding
+    @PostMapping(value = "route")
+    public ResponseEntity<Route> addRoute(@RequestBody Route route){
+    	Route r = userServices.route(route);
+    	return new ResponseEntity<Route>(r, HttpStatus.ACCEPTED);
+    }
     
 }

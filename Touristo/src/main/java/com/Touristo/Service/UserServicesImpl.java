@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.Touristo.Entity.Booking;
 import com.Touristo.Entity.Bus;
 import com.Touristo.Entity.Customer;
+import com.Touristo.Entity.Feedback;
 import com.Touristo.Entity.Hotel;
 import com.Touristo.Entity.Packages;
 import com.Touristo.Entity.Route;
@@ -146,6 +147,7 @@ public class UserServicesImpl implements UserServices{
 		bookings.add(booking);
 		customer.setBookings(bookings);
 		
+		bookingRepo.save(booking);
 		customerRepo.save(customer);
 		
 		return booking;
@@ -175,6 +177,7 @@ public class UserServicesImpl implements UserServices{
 		bookings.add(booking);
 		customer.setBookings(bookings);
 		 
+		bookingRepo.save(booking);
 		customerRepo.save(customer);
 		
 		return booking;
@@ -186,25 +189,87 @@ public class UserServicesImpl implements UserServices{
 		
 		Optional<Customer> optCustomer = customerRepo.findById(customerId);
 		Optional<Bus> optBus = busRepo.findById(busId);
-		
 		Optional<Route> optRoute = routeRepo.findById(routeId);
 		
 		Customer customer = optCustomer.get();
 		Bus bus = optBus.get();
 		Route route = optRoute.get();
 		
-		route.setBus(bus);
+		route.setBus_id(busId);
+		
 		List<Ticket> ticket = customer.getTickets();
 		Ticket ticketObj = new Ticket();
 		ticketObj.setRoute(route);
 		ticketObj.setCustomer(customer);
 		ticketObj.setStatus("Booked");
+		ticketObj.setBus(bus);
 		
 		ticket.add(ticketObj);
 		customer.setTickets(ticket);
 		
+		routeRepo.save(route);
+		ticketRepo.save(ticketObj);
+		customerRepo.save(customer);
+		
 		return ticketObj;
 	}
 
+	@Override
+	public Feedback addFeedback(int customerId, Feedback feedback) {
+		// TODO Auto-generated method stub
+		Optional<Customer> customerOpt = customerRepo.findById(customerId);
+		Customer customer = customerOpt.get();
+		feedback.setCustomer(customer);
+		List<Feedback> feedbackList = customer.getFeedbacks();
+		feedbackList.add(feedback);
+		customer.setFeedbacks(feedbackList);
+		feedbackRepo.save(feedback);
+		customerRepo.save(customer);
+		return feedback;
+	}
+
+	@Override
+	public void cancelHotelBooking(int BookingId) {
+		// TODO Auto-generated method stub
+		    Optional<Booking> booking = bookingRepo.findById(BookingId);
+		    Booking book = booking.get();
+		 
+		    List<Hotel> hotels = book.getHotels();
+	        // Remove the association between the hotels and the booking
+	        hotels.forEach(hotel -> hotel.setBooking(null));
+	        // Delete the associated hotels manually
+	        hotels.clear();
+		    bookingRepo.deleteById(BookingId);
+	}
+
+	@Override
+	public void cancelPackageBooking(int BookingId) {
+		// TODO Auto-generated method stub
+		    Optional<Booking> booking = bookingRepo.findById(BookingId);
+		    Booking book = booking.get();
+		 
+		    List<Packages> packages = book.getPackages();
+	        // Remove the association between the hotels and the booking
+	        packages.forEach(pack -> pack.setBooking(null));
+	        // Delete the associated hotels manually
+	        packages.clear();
+		    bookingRepo.deleteById(BookingId);
+	}
+
+	@Override
+	public Route route(Route route) {
+		// TODO Auto-generated method stub
+		routeRepo.save(route);
+		return route;
+	}
+
+	@Override
+	public void cancelTicket(int ticketId) {
+		// TODO Auto-generated method stub
+		Optional<Ticket> ticketOpt = ticketRepo.findById(ticketId);
+		Ticket ticket = ticketOpt.get();
+		ticket.setBus(null);
+		ticketRepo.deleteById(ticketId);
+	}
 	
 }

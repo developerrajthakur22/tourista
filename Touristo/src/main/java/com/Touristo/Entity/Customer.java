@@ -18,42 +18,32 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Customer_id;
-
+	
 	@NotNull
 	private String name;
-
+	
 	@NotNull
 	private String password;
-
+	
 	private String address;
-
+	
 	private String phoneNo;
-
+	
 	@Email
 	private String email;
-
+	
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
 	private List<Booking> bookings = new ArrayList<>();
-
+	
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
 	private List<Ticket> tickets = new ArrayList<>();
-
+	
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-	private List<Feedback> feedbacks = new ArrayList<>();
+    private List<Feedback> feedbacks = new ArrayList<>();
 
 	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	public Customer(@NotNull String name, @NotNull String password, String address, String phoneNo,
-			@Email String email) {
-		super();
-		this.name = name;
-		this.password = password;
-		this.address = address;
-		this.phoneNo = phoneNo;
-		this.email = email;
 	}
 
 	public String getName() {
@@ -126,6 +116,6 @@ public class Customer {
 
 	public void setCustomer_id(int customer_id) {
 		Customer_id = customer_id;
-	}
-
+	}	
+	
 }

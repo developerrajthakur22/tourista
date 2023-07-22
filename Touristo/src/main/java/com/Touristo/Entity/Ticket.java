@@ -1,5 +1,8 @@
 package com.Touristo.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.annotation.Nullable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,11 +20,15 @@ public class Ticket {
 	
 	private String status;
 	
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Customer customer; 
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Route route;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Bus bus;
 
 	public Ticket() {
 		super();
@@ -58,6 +65,14 @@ public class Ticket {
 
 	public void setRoute(Route route) {
 		this.route = route;
+	}
+
+	public Bus getBus() {
+		return bus;
+	}
+
+	public void setBus(Bus bus) {
+		this.bus = bus;
 	}
 	
 	
