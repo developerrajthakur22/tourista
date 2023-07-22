@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+  body {
+    font-weight: bold;
+    font-size: 16px;
+  } 
+  
+  /* Navbar CSS Start*/
+.navbar {
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    background-color: #2e9adb;
+    /* border: 2px solid red; */
+  }
+  .navbar > img {
+    margin-left: 30px;
+    height: 40px;
+    margin-top: 7px;
+  }
+  nav {
+    width: 40%;
+    margin-right: 70px;
+    /* border: 2px solid green;  */
+  }
+  nav > ul {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  nav > ul ul {
+    visibility: hidden;
+    background-color: white;
+    color: black;
+    padding: 0px 5px;
+    margin-top: 10px;
+    line-height: 40px;
+  }
+  nav > ul li:hover > ul {
+    transition: 0.6s linear;
+    visibility: visible;
+  }
+  nav > ul ul > li a {
+    color: black;
+  }
+  a {
+    color: white;
+  }
+  

@@ -1,0 +1,73 @@
+/* Header background CSS */
+#header {
+  width: 100%;
+  height: 60vh;
+  /* background-image: url("./Images/package-bg.jpg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#tour-middle {
+  width: 90%;
+  margin: auto;
+  margin-top: 30px;
+  line-height: 40px;
+}
+
+#tour-middle>p {
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.package-image {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.package-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.tripto-passage {
+  width: 90%;
+  margin: auto;
+  margin-top: 30px;
+  line-height: 30px;
+}
+
+.tripto-passage h1 {
+  margin-bottom: 20px;
+}
+
+.tripto-passage p {
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+.tripto-passage span {
+  font-weight: bolder;
+}
+
+#package_container {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  padding: 2rem;
+}
+
+#package_container>div {
+  background-color: #2e9adb;
+  margin: 1rem;
+  text-align: left;
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 8px;
+  padding-top: 10px;
+}
+#package_container>div>button{
+  border-radius: 3px;
+  margin-top: 10px;
+}
