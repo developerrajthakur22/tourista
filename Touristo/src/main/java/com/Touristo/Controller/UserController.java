@@ -39,8 +39,8 @@ public class UserController {
 	}
 	
 	//User Login
-	@GetMapping(value = "/userLogin/{username}/{password}")
-	public ResponseEntity<Customer> customerLogin(@PathVariable String username, @PathVariable String password) throws NotFoundException, TouristoException{
+	@GetMapping(value = "/userLogin")
+	public ResponseEntity<Customer> customerLogin(String username, String password) throws NotFoundException, TouristoException{
 		Customer cust = userServices.userLogin(username, password);
 		return new ResponseEntity<Customer>(cust, HttpStatus.OK);
 	}
