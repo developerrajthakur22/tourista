@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +23,7 @@ import com.Touristo.Exception.TouristoException;
 import com.Touristo.Service.UserServices;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class UserController {
 
 	@Autowired
@@ -35,8 +37,8 @@ public class UserController {
 	}
 	
 	//User Login
-	@GetMapping(value = "/userLogin/{username}/{password}")
-	public ResponseEntity<Customer> customerLogin(@PathVariable String username, @PathVariable String password) throws NotFoundException, TouristoException{
+	@GetMapping(value = "/userLogin")
+	public ResponseEntity<Customer> customerLogin(String username, String password) throws NotFoundException, TouristoException{
 		Customer cust = userServices.userLogin(username, password);
 		return new ResponseEntity<Customer>(cust, HttpStatus.OK);
 	}
