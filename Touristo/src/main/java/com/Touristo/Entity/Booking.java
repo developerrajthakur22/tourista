@@ -30,13 +30,13 @@ public class Booking {
 	private LocalDate bookingDate;
 	
     @JsonIgnore
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	private Customer customer; 
 	
-	@OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "booking")
 	private List<Packages> packages = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "booking")
 	private List<Hotel> hotels = new ArrayList<>();
 	
 	public Booking() {

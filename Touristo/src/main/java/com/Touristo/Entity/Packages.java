@@ -29,7 +29,7 @@ public class Packages {
 	private String paymentDetails;
 	
 	@JsonIgnore
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
     private Booking booking;
 
 	public Packages() {

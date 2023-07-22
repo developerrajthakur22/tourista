@@ -2,7 +2,10 @@ package com.Touristo.Entity;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,8 +25,9 @@ public class Route {
 	
 	private LocalDate dateOfJourney;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	private Bus bus;
+	//@JsonIgnore
+	//@OneToOne(cascade = CascadeType.ALL)
+	private int bus_id;
 
 	public Route() {
 		super();
@@ -62,13 +66,13 @@ public class Route {
 		this.dateOfJourney = dateOfJourney;
 	}
 
-	public Bus getBus() {
-		return bus;
+	public int getBus_id() {
+		return bus_id;
 	}
 
-	public void setBus(Bus bus) {
-		this.bus = bus;
+	public void setBus_id(int bus_id) {
+		this.bus_id = bus_id;
 	}
-	
+
 	
 }

@@ -29,7 +29,7 @@ public class Hotel {
     private String status;
 	
     @JsonIgnore
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Booking booking;
 
 	public Hotel() {

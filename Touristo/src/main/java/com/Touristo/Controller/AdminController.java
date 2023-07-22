@@ -14,7 +14,7 @@ import com.Touristo.Entity.Packages;
 import com.Touristo.Service.AdminServices;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*") 
 public class AdminController {
 
 	 @Autowired
