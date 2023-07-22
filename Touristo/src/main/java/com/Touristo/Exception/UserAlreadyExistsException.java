@@ -1,4 +1,4 @@
-package app.trip.exceptions;
+package com.Touristo.Exception;
 
 public class UserAlreadyExistsException extends Exception{
 

@@ -1,4 +1,4 @@
-package com.Tourista.Exceptions;
+package com.Touristo.Exception;
 
 public class InvalidRouteException extends Exception {
 	public InvalidRouteException() {
