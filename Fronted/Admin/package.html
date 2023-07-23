@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package</title>
+</head>
+<link rel="stylesheet" href="package.css">
+<body>
+    <div id="header">
+        <div class="navbar">
+            <img src="./tripoto.svg" alt="tripto logo" />
+        </div>
+    </div>
+    <!-- <hr> -->
+    <div class="center">
+        <!-- <button id="show-login">Login</button> -->
+    </div>
+    <div class="popup">
+        <!-- <div id="banner"><img src="https://images.meesho.com/images/marketing/1661417516766.webp" alt="image"></div> -->
+        <div class="form">
+            <h2>Package details</h2>
+            <div class="form-element">
+                <label for="name">Package Name</label>
+                <input type="text" placeholder="Enter package name" id="name">
+            </div>
+            <div class="form-element">
+                <label for="desc">Package Description</label>
+                <input type="text"  id="desc" placeholder="Enter package description">
+            </div>
+            <div class="form-element">
+                <label for="type">Package Type</label>
+                <input type="text" placeholder="Enter package type" id="type">
+            </div>
+            <div class="form-element">
+                <label for="cost">Cost</label>
+                <input type="number" placeholder="Enter package cost" id="cost">
+            </div>
+            <div class="form-element">
+                <button id="btn" onclick="addPackage()">Add Package</button>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="pop">Package added successful</div> -->
+</body>
+<script src="./package.js"></script>
+</html>

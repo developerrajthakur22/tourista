@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel</title>
+</head>
+<link rel="stylesheet" href="hotel.css">
+<body>
+    <div id="header">
+        <div class="navbar">
+            <img src="./tripoto.svg" alt="tripto logo" />
+        </div>
+    </div>
+    <!-- <hr> -->
+    <div class="center">
+        <!-- <button id="show-login">Login</button> -->
+    </div>
+    <div class="popup">
+        <!-- <div id="banner"><img src="https://images.meesho.com/images/marketing/1661417516766.webp" alt="image"></div> -->
+        <div class="form">
+            <h2>Hotel details</h2>
+            <div class="form-element">
+                <label for="name">Hotel Name</label>
+                <input type="text" placeholder="Enter hotel name" id="name">
+            </div>
+            <div class="form-element">
+                <label for="type">Hotel Type</label>
+                <input type="text" placeholder="Enter hotel type" id="type">
+            </div>
+            <div class="form-element">
+                <label for="desc">Hotel Description</label>
+                <input type="text"  id="desc" placeholder="Enter hotel description here">
+            </div>
+            <!--  -->
+            <div class="form-element">
+                <label for="address">Hotel Address</label>
+                <input type="text" placeholder="Enter hotel address" id="address">
+            </div>
+            <div class="form-element">
+                <label for="rent">Rent</label>
+                <input type="number" placeholder="Enter hotel rent per room/day" id="rent">
+            </div>
+            <div class="form-element">
+                <label for="status">Status</label>
+                <input type="text"  id="status" placeholder="Enter hotel status here">
+            </div>
+            <div class="form-element">
+                <button id="btn" onclick="addHotel()">Add Hotel</button>
+            </div>
+        </div>
+    </div>
+    <div id="pop">Hotel added successful</div>
+</body>
+<script src="./hotel.js"></script>
+</html>

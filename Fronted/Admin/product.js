@@ -1,78 +1,28 @@
-let addBtn = document.getElementById("addBtn");
-let addHotel = document.getElementById("addHotel");
+let hotelBtn = document.getElementById("hotelBtn");
+let packageBtn = document.getElementById("packageBtn");
 let searchbtn = document.querySelector(".search form");
 let busBtn = document.getElementById("busBtn");
 let addBus = document.getElementById("addBus");
 
 busBtn.addEventListener("click",function(){
-    document.querySelector(".popup2").style.display = "block";
+    window.open( "./bus.html","_blank");
 })
 
-addBtn.addEventListener("click", function () {
-    document.querySelector(".popup").style.display = "block";
+hotelBtn.addEventListener("click", function () {
+    window.open( "./hotel.html","_blank");
 })
 
+packageBtn.addEventListener("click", function () {
+    window.open( "./package.html","_blank");
+})
 
-document.querySelector(".close").addEventListener("click", function () {
-    document.querySelector(".popup").style.display = "none";
-});
+// document.querySelector(".close").addEventListener("click", function () {
+//     document.querySelector(".popup").style.display = "none";
+// });
 
-document.querySelector("#close2").addEventListener("click", function () {
-    document.querySelector(".popup2").style.display = "none";
-});
-
-// To the add Hotel //
-let hotelName = document.getElementById("hotelName").value;
-let hotelCategory = document.getElementById("hotelCategory").value;
-let hotelDesc = document.getElementById("hotelDesc").value;
-let hotelAddress = document.getElementById("hotelAddress").value;
-let hotelRent = document.getElementById("hotelRent").value;
-let hotelStatus = document.getElementById("hotelStatus").value;
-
-addHotel.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-        let obj = {"hotelAddress":hotelAddress,"hotelDescription":hotelDesc,"hotelType":hotelCategory,"hotelname":hotelName,"rent":hotelRent,"status":hotelStatus};
-
-        fetch("http://localhost:8888/addHotel",{
-            method : "POST",
-            headers : {
-                "content-type" : "application/json"
-            },
-            body : JSON.stringify(obj)
-        }).then(response => {
-            if(response.status == 201 | response.status == 200){
-                response.json().then(data => alert("Hotel added successful"+data.message))
-            }else{
-                response.json().then(data => alert(data.message));
-            }
-        })
-});
-    
-// to add Bus //
-let busType = document.getElementById("busType").value;
-let busCapacity = document.getElementById("busCapacity").value;
-let busFare = document.getElementById("busFare").value;
-
-addBus.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-        let obj = {"busType":busType,"capacity":busCapacity,"fare":busFare};
-
-        fetch("http://localhost:8888/addBus",{
-            method : "POST",
-            headers : {
-                "content-type" : "application/json"
-            },
-            body : JSON.stringify(obj)
-        }).then(response => {
-            if(response.status == 201 | response.status == 200){
-                response.json().then(data => alert("Bus added successful"+data.message))
-            }else{
-                response.json().then(data => alert(data.message));
-            }
-        })
-});
+// document.querySelector("#close2").addEventListener("click", function () {
+//     document.querySelector(".popup2").style.display = "none";
+// });
 
 // menu toggle
 let toggle = document.querySelector(".toggle");

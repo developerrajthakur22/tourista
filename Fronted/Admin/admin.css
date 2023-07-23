@@ -113,7 +113,10 @@ body{
 
 #logo{
     top: 8;
+    margin-left: 17px;
+    /* border: 1px solid black; */
 }
+
 
 .navigation ul li:hover a::before,
 .navigation ul li.hovered a::before{

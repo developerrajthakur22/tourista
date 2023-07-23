@@ -17,7 +17,7 @@ function logIn(){
                 localStorage.setItem("username",data.name);
             })
 
-            const url = "C:\Users\Lenovo\Desktop\efficient-veil-6767\Fronted\index.html";
+            const url = "/Frontend/signIn.html";
 
             location.href = url;
         }
