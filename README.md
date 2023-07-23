@@ -66,8 +66,8 @@ server.port = 8888
 
 spring.datasource.driver=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/Touristo
-spring.datasource.username=root
-spring.datasource.password=root
+spring.datasource.username= Your Username
+spring.datasource.password= Your Password
 
 spring.jpa.hibernate.ddl-auto=update
 
