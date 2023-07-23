@@ -11,6 +11,8 @@
     </title>
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/package.css">
+    <link rel="stylesheet" href="./css/bus.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 </head>
 
@@ -18,20 +20,20 @@
     <!-----------------------Sign In Form--------------------------->
     <div class="overlay"></div>
 
-        <div class="sign-up-form sign-in">
-            <form action="">
-                <div>
-                    <button> <i class="fa-brands fa-facebook-f"></i>&nbsp;&nbsp;Log in with Facebook</button>
-                    <button> <i class="fa-brands fa-google-plus"></i>&nbsp;&nbsp;Log in with Google</button>
-                    <p>OR</p>
-                    <input type="text" placeholder="Email">
-                    <input type="password" placeholder="PASSWORD">
-                    <span><input type="checkbox" name="" id=""/>&nbsp;Remember me</span>
-                    <button>Login</button>
-                    <p>Don't have an account?<span id="sign-up-btn">&nbsp;Sign Up</span></p>
-                </div>
-            </form>
-        </div>
+    <div class="sign-up-form sign-in">
+        <form action="">
+            <div>
+                <button> <i class="fa-brands fa-facebook-f"></i>&nbsp;&nbsp;Log in with Facebook</button>
+                <button> <i class="fa-brands fa-google-plus"></i>&nbsp;&nbsp;Log in with Google</button>
+                <p>OR</p>
+                <input type="text" placeholder="Email">
+                <input type="password" placeholder="PASSWORD">
+                <span><input type="checkbox" name="" id=""/>&nbsp;Remember me</span>
+                <button>Login</button>
+                <p>Don't have an account?<span id="sign-up-btn">&nbsp;Sign Up</span></p>
+            </div>
+        </form>
+    </div>
 
     <div class="sign-up-form sign-up">
         <form action="">
@@ -54,7 +56,7 @@
             <img src="./Images/tripoto.svg" alt="tripto logo" id="logo" />
             <nav>
                 <ul id="menu">
-                    <!-- <li>
+                    <li>
                         <a href="./index.html">
                             Inspiration <i class="fa-solid fa-cart-shopping"></i>
                         </a>
@@ -62,7 +64,7 @@
                             <li><a href="#">Your Bookings</a></li>
                             <li><a href="#">Your Tickets</a></li>
                         </ul>
-                    </li> -->
+                    </li>
 
                     <li><a href="./hotel.html">Hotels</a></li>
                     <li><a href="./bus.html">Buses</a></li>
@@ -76,12 +78,7 @@
                             <li><a href="Tickets.html">Your Tickets</a></li>
                         </ul>
                     </li>
-                    <li><a href="signIn.html" id="sign-in">Sign in</a></li>
-                    <li>
-                        <a id = "logout">
-                            Logout 
-                        </a>
-                    </li>
+                    <li><a href="" id="sign-in">Sign in</a></li>
                 </ul>
             </nav>
         </div>
@@ -91,33 +88,34 @@
                 <i class="fa-solid fa-magnifying-glass"></i></span>
         </div>
     </div>
-    <!-------------Small Card Section Start -------------->
-    <div id="small-cards">
-        <div>
-            <img src="./Images/1657192329_aa.png" alt="" />
-            <img src="./Images/1657192273_bb.png" alt="" />
-            <img src="./Images/1657192307_cc.png" alt="" />
-            <img src="./Images/1657192344_dd.png" alt="" />
-        </div>
+
+    <!-- Buses section  -->
+
+    <!-- route  -->
+    <h1 style="text-align: center; margin-top: 10px;"> Select Route for bus booking:</h1>
+    <div id="Route">
+    <div class="Routecontainer">
+        <label for="from">From:</label>
+        <input type="text" id="from" name="from">
+      </div>
+    
+      <div class="Routecontainer">
+        <label for="where">Where:</label>
+        <input type="text" id="where" name="where">
+      </div>
+    
+      <div class="Routecontainer">
+        <label for="date">Select Date:</label>
+        <input type="date" id="date" name="date">
+      </div>
+    
+      <button id="goButton">Go</button>
     </div>
+      <!-- route ended here -->
 
-    <!---------------Middle Section Start--------------------->
-
-    <span>
-        <h1>In the Spotlight: Partnerships</h1>
-    </span>
-    <div id="middle-container"></div>
-    <div class="image-slider" id="slide"></div>
-
-    <span>
-        <h1>Find Best Places to Visit in India in December & January</h1>
-    </span>
-    <div id="eight-cards"></div>
-    <div class="image-slider">
-        <img src="https://cdn1.tripoto.com/media/filter/nxxl/img/2215463/Image/1669366871_kerala.jpg" alt="">
-    </div>
-    <div id="book-now"></div>
-
+    <!-- bus container -->
+    <div id="container"></div>
+    
     <div id="footer">
         <div>
             <img src="./Images/footer-blue.svg" alt="">
@@ -173,5 +171,6 @@
     <span><p>© All rights reserved.</p></span>
     
 </body>
-<script src="./script/index.js"></script>
+<script src="./script/bus.js"></script>
+
 </html>

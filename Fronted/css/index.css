@@ -253,3 +253,6 @@ span>p{
   margin-bottom: 20px;
   font-weight: lighter;
 }
+#logout{
+   cursor: pointer;
+}
