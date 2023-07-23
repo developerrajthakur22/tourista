@@ -17,7 +17,7 @@
 
 <body>
     <!-----------------------Sign In Form--------------------------->
-    <!-- <div class="overlay"></div>
+    <div class="overlay"></div>
 
     <div class="sign-up-form sign-in">
         <form action="">
@@ -47,38 +47,34 @@
                 <a href="#">Don't have an account? Sign Up</a>
             </div>
         </form>
-    </div> -->
+    </div>
 
     <!----------------Header Section Start-------------------->
     <div id="header">
         <div class="navbar" id="navbar">
-            <img src="./Images/tripoto.svg" alt="tripto logo" />
-
+            <img src="./Images/tripoto.svg" alt="tripto logo" id="logo" />
             <nav>
                 <ul id="menu">
                     <li>
                         <a href="./index.html">
-                            Inspirations <i class="fa-solid fa-caret-down"></i>
+                            Inspiration <i class="fa-solid fa-cart-shopping"></i>
                         </a>
                         <ul>
-                            <li><a href="#">Visit Singapore</a></li>
-                            <li><a href="#">Visit Singapore</a></li>
-                            <li><a href="#">Visit Singapore</a></li>
-                            <li><a href="#">Visit Singapore</a></li>
-                            <li><a href="#">Visit Singapore</a></li>
+                            <li><a href="#">Your Bookings</a></li>
+                            <li><a href="#">Your Tickets</a></li>
                         </ul>
                     </li>
 
-                    <li><a href="./forum.html">Forum</a></li>
+                    <li><a href="./hotel.html">Hotels</a></li>
+                    <li><a href="./bus.html">Buses</a></li>
                     <li><a href="./package.html">Packages</a></li>
                     <li>
                         <a href="#">
-                            Publsih Trip <i class="fa-solid fa-caret-down"></i>
+                            Cart <i class="fa-solid fa-cart-shopping"></i>
                         </a>
                         <ul>
-                            <li><a href="#">Create New</a></li>
-                            <li><a href="#">Uplode Photos/Videos</a></li>
-                            <li><a href="#">Import Blog</a></li>
+                            <li><a href="Bookings.html">Your Bookings</a></li>
+                            <li><a href="Tickets.html">Your Tickets</a></li>
                         </ul>
                     </li>
                     <li><a href="" id="sign-in">Sign in</a></li>
@@ -87,7 +83,7 @@
         </div>
         <div class="header-search">
             <h1>India's Largest Community of Travellers</h1>
-            <span><input type="search" placeholder="Search for itineraries, destinations, hotels or activities" />
+            <span><input type="search" placeholder="Search for itineraries, destinations, hotels or activities"  />
                 <i class="fa-solid fa-magnifying-glass"></i></span>
         </div>
     </div>
@@ -105,9 +101,14 @@
     </div>
 
     <div class="package-image">
-        <img src="./Images/package1.jpg" alt="">
-        <img src="./Images/package2.jpg" alt="">
-        <img src="./Images/package3.jpg" alt="">
+        <div id="couples" class="packageViewer"><img src="./Images/package1.jpg" alt=""></div>
+        <div id="family" class="packageViewer"><img src="./Images/package2.jpg" alt="" ></div>
+        <div id="budget" class="packageViewer"><img src="./Images/package3.jpg" alt="" ></div>
+    </div>
+
+    <!-- //appending data here -->
+    <div id="package_container">
+
     </div>
 
     <div class="tripto-passage">

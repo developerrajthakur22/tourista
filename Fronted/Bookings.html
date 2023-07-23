@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings</title>
+    <link rel="stylesheet" href="./css/Bookings.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+</head>
+<body>
+    
+    <!-- navbar -->
+    <div id="header">
+        <div class="navbar" id="navbar">
+            <img src="./Images/tripoto.svg" alt="tripto logo" id="logo" />
+            <nav>
+                <ul id="menu">
+                    <li>
+                        <a href="./index.html">
+                            Inspiration <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                        <ul>
+                            <li><a href="#">Your Bookings</a></li>
+                            <li><a href="#">Your Tickets</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="./hotel.html">Hotels</a></li>
+                    <li><a href="./bus.html">Buses</a></li>
+                    <li><a href="./package.html">Packages</a></li>
+                    <li>
+                        <a href="#">
+                            Cart <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                        <ul>
+                            <li><a href="Bookings.html">Your Bookings</a></li>
+                            <li><a href="Tickets.html">Your Tickets</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" id="sign-in">Sign in</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-search">
+            <h1>India's Largest Community of Travellers</h1>
+            <span><input type="search" placeholder="Search for itineraries, destinations, hotels or activities"  />
+                <i class="fa-solid fa-magnifying-glass"></i></span>
+        </div>
+    </div>
+
+    <h1 class="bookingHeading">Your Bookings:</h1>
+    <div id="bookingContainer">
+
+    </div>
+
+    <script src="./script/Bookings.js"></script>
+</body>
+</html>

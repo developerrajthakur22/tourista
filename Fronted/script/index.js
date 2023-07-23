@@ -9,6 +9,27 @@ let close = document.querySelector(".overlay")
 //     window.open("./index.html","_self");
 // })
 
+let customer = JSON.parse(localStorage.getItem("customer"));
+let singinName = document.getElementById("sign-in");
+
+if(customer!=null){
+    singinName.innerText = customer.name;     
+}
+
+//logout functionality
+let logout = document.getElementById("logout");
+logout.addEventListener("click", () => {
+    const userConfirmation = window.confirm("Are you sure you want to log out?");
+    if (userConfirmation) {
+        localStorage.removeItem("customer");
+        localStorage.removeItem("customerId");
+        window.location.reload();
+    } else {
+        window.location.reload();
+    }
+});
+
+
 
 fetch("https://639996ab29930e2bb3d81db3.mockapi.io/tours?page=1&limit=4")
     .then((objectResponse) => {
