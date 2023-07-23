@@ -1,6 +1,9 @@
 package com.Touristo.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -66,12 +69,12 @@ public class AdminServiceImpl implements AdminServices {
 		return buses;
 	}
 
-	@Override
-	public List<Booking> viewAllBooking() {
-		// TODO Auto-generated method stub
-		List<Booking> booking = bookingRepo.findAll();
-		return booking;
-	}
+	// @Override
+	// public List<Booking> viewAllBooking() {
+	// 	// TODO Auto-generated method stub
+	// 	List<Booking> booking = bookingRepo.findAll();
+	// 	return booking;
+	// }
 
 	@Override
 	public Hotel addHotel(Hotel hotel) {
@@ -93,5 +96,48 @@ public class AdminServiceImpl implements AdminServices {
 		Bus addedbus = busRepo.save(bus);
 		return addedbus; 
 	}
+
+    @Override
+	public List<Map<String, String>> viewAllBookings() {
+		// TODO Auto-generated method stub
+		List<Booking> allBookings = bookingRepo.findAll();
+		List<Map<String, String>> bookingDetailsList = new ArrayList<>();
+		
+		for(Booking booking: allBookings) {
+			Map<String, String> bookingDetails = new HashMap<>();
+			if(booking.getCustomer() == null) {
+				continue;
+			}
+			String customerName = booking.getCustomer().getName();
+			 bookingDetails.put("CustomerName", customerName);
+			 
+			if(booking.getBookingTitle().equals("Hotel Booking") && booking.getHotels().size() != 0) {
+				bookingDetails.put("BookingTitle", booking.getBookingTitle());
+			
+				Hotel hotel = booking.getHotels().get(0);
+				String hotelName = hotel.getHotelname();
+				double price = hotel.getRent();
+				
+				bookingDetails.put("HotelName", hotelName);
+	            bookingDetails.put("Price", String.valueOf(price));
+			}else {
+                bookingDetails.put("BookingTitle", booking.getBookingTitle());
+				if(booking.getPackages().size() == 0 && booking.getHotels().size() == 0) {
+					continue;
+				}
+				Packages pack = booking.getPackages().get(0);
+				String packageName = pack.getPackageName();
+				double price = pack.getCost();
+				
+				bookingDetails.put("PackageName", packageName);
+	            bookingDetails.put("Price", String.valueOf(price));
+			}
+			
+			bookingDetailsList.add(bookingDetails);
+		}
+		
+		return bookingDetailsList;
+	}
+
 
 }

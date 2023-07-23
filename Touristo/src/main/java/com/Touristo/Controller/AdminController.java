@@ -1,5 +1,8 @@
 package com.Touristo.Controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,4 +51,14 @@ public class AdminController {
 		 Bus b = adminServices.addBus(bus);
 		 return new ResponseEntity<Bus>(b, HttpStatus.ACCEPTED);
 	 }
+
+	 @GetMapping(value = "/allBookings")
+	 public ResponseEntity<List<Map<String, String>>> viewAllBooking() throws NotFoundException{
+		 List<Map<String, String>> list = adminServices.viewAllBookings();
+		 if(list.isEmpty()) {
+			 throw new NotFoundException("No bookings");
+		 }
+		 return new ResponseEntity<List<Map<String, String>>>(list, HttpStatus.OK);
+	 }
+	 
 }
