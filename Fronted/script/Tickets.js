@@ -58,7 +58,7 @@ function displayTickets(data) {
 
         button.addEventListener("click", () => {
             data.splice(index, 1);
-            fetch(`http://localhost:8888/DeletePackageBooking/${element.bookingId}`, {
+            fetch(`http://localhost:8888/DeleteTicket/${element.ticketId}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

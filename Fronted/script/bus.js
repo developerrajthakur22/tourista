@@ -57,8 +57,8 @@ function Bus(data) {
 
         // Call changeImage every 3 seconds (3000 milliseconds)
         setInterval(changeImage, 3000);
-
-        travel.textContent = product.travelAgency;
+        console.log(product)
+        travel.textContent = product.travel_agency;
         travel.style.color = "#349390"
         Type.textContent = "Bus Type: " + product.busType;
         Capacity.textContent = "Capacity: "+ product.capacity;
