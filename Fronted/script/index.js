@@ -10,11 +10,16 @@ let close = document.querySelector(".overlay")
 // })
 
 let customer = JSON.parse(localStorage.getItem("customer"));
+let customerId = localStorage.getItem("customerId");
 let singinName = document.getElementById("sign-in");
 
+if(customer.message){
+    singinName.innerText = "Signin";     
+}
 if(customer!=null){
     singinName.innerText = customer.name;     
 }
+
 
 //logout functionality
 let logout = document.getElementById("logout");

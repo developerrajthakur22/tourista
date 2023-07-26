@@ -269,6 +269,10 @@ public class UserServicesImpl implements UserServices{
 		Optional<Ticket> ticketOpt = ticketRepo.findById(ticketId);
 		Ticket ticket = ticketOpt.get();
 		ticket.setBus(null);
+		Customer customer = ticket.getCustomer();
+		customer.getTickets().remove(ticket);
+		ticket.setCustomer(null);
+	    ticket.setBus(null);
 		ticketRepo.deleteById(ticketId);
 	}
 	

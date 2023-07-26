@@ -16,6 +16,10 @@ function signUp(){
     }).then(response => {
         if(response.status == 201 | response.status == 200 | response.status == 202){
             response.json().then(data => alert("Customer registration successful"))
+            localStorage.setItem("customer", JSON.stringify(response));
+            localStorage.setItem("customerId", JSON.stringify(response.customer_id));
+            const url = "../index.html";
+            location.href = url;
         }else{
             response.json().then(data => alert(data.message));
         }

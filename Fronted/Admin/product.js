@@ -35,8 +35,20 @@ toggle.onclick = function(){
 }
 
 // get request
-async function getRequest(){
-    let response = await fetch(`https://63c7e48ee52516043f46bd7e.mockapi.io/product`);
+//  async function getRequest(){
+//      let response = await fetch(`https://63c7e48ee52516043f46bd7e.mockapi.io/product`);
+//      let data = await response.json();
+//      console.log(data);
+//      display(data);
+
+//      searchbtn.addEventListener("submit",(e)=>{
+//          e.preventDefault();
+//          searchData(data)
+//      })
+//  }
+
+ async function getRequest(){
+    let response = await fetch(`http://localhost:8888/allBookings`);
     let data = await response.json();
     console.log(data);
     display(data);
@@ -47,22 +59,22 @@ async function getRequest(){
     })
 }
 
-getRequest();
+  getRequest();
 
-// for appending the elements
-async function fetchUrl(id){
-    let response = await fetch(`https://63c7e48ee52516043f46bd7e.mockapi.io/product/${id}`,{
-        method : "DELETE",
-        headers : {
-            "Content-Type" : "application/json"
-        },
-        body : null
-    });
-    let data = await response.json();
-    console.log(data);
-    // display(data);
-    getRequest();
-}
+ //for appending the elements
+ async function fetchUrl(id){
+     let response = await fetch(`https://63c7e48ee52516043f46bd7e.mockapi.io/product/${id}`,{
+         method : "DELETE",
+         headers : {
+             "Content-Type" : "application/json"
+         },
+         body : null
+     });
+     let data = await response.json();
+     console.log(data);
+     // display(data);
+     getRequest();
+ }
 
 let tbody = document.querySelector("tbody");
 function display(data){
@@ -70,13 +82,17 @@ function display(data){
     data.forEach((element,index) => {
         let tr = document.createElement("tr");
         let td1 = document.createElement("td");
-        td1.innerText = element.title;
+        if(element.PackageName){
+            td1.innerText = "Package: "+ element.PackageName;
+        }else{
+            td1.innerText = "Hotel: "+ element.HotelName;
+        }
 
         let td2 = document.createElement("td");
-        td2.innerText = element.price;
+        td2.innerText = element.Price;
 
         let td3 = document.createElement("td");
-        td3.innerText = element.id;
+        td3.innerText = element.CustomerName;
 
         let td4 = document.createElement("td");
         let del = document.createElement("button");
