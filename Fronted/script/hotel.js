@@ -14,7 +14,7 @@ async function FetchData(){
         let res = await fetch(`http://localhost:8888/Hotels`)
         res = await res.json()
         console.log(res)
-        Hotels(res)   
+        filter(res)  
     } catch(err){
         console.log("error", err)
     }
@@ -30,12 +30,15 @@ function Hotels(data){
         Image.classList.add("imageClass");
 
         let Name = document.createElement("h2")
-        let Type = document.createElement("h4")
-        let Description = document.createElement("h4")
-        let Address = document.createElement("h4")
-        let Rent = document.createElement("h4")
-        let Status = document.createElement("h4")
-        let Booking = document.createElement("h4")
+        // Name.style.color = "#2e9adb";
+        Name.style.color = "red";
+        let Type = document.createElement("p")
+        let Description = document.createElement("p")
+        let Address = document.createElement("p")
+        let Rent = document.createElement("p")
+        // Rent.style.color = "red"
+        let city = document.createElement("p")
+        let Booking = document.createElement("p")
         let Booknow = document.createElement("button")
         Booknow.classList.add("bookNow");
 
@@ -69,12 +72,11 @@ function Hotels(data){
         Description.textContent = product.hotelDescription;
         Address.textContent = "Address: "+product.hotelAddress;
         Rent.textContent = `₹${product.rent}`;
-        Status.textContent = product.status;
+        city.textContent = product.city;
         Booking.textContent = product.booking;
         Booknow.textContent = "Book Now";
 
         Booknow.addEventListener("click", ()=>{
-            Booknow.addEventListener("click", () => {
                 fetch(`http://localhost:8888/bookHotel/${customerId}/${product.hotelId}`, {
                     method: 'POST',
                     headers: {
@@ -91,10 +93,13 @@ function Hotels(data){
                         console.error('Error:', error);
                     });
 
-                alert("Product added to cart");
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Hotel added to cart',
+                        // You can add more customization options here
+                    });
             });
-        })
-        Card.append(Image,Name,Type,Description,Address,Rent,Status,Booking,Booknow)
+        Card.append(Image,Name,Type,Description,Address,city,Rent,Booking,Booknow)
         Container.append(Card)
 
     });
@@ -107,4 +112,53 @@ Logo.addEventListener("click", (e) => {
     e.preventDefault();
     window.location = "index.html";
 })
+let selectCity = document.getElementById("cities");
 //Redirecting to home page start end
+
+function filter(data){
+    selectCity.addEventListener("change", () => {
+        const selectedCity = selectCity.value;
+    
+        // Filter hotels based on the selected city
+        const filteredHotels = data.filter((hotel) =>
+          selectedCity !== "all" ? hotel.city === selectedCity : true
+        );
+    
+        // Update the displayed hotels
+        if (filteredHotels.length > 0) {
+          Hotels(filteredHotels);
+        } else {
+          Hotels(data);
+        }
+      });
+      // Show all hotels by default
+      Hotels(data);
+}
+
+// searching
+
+let searchInput = document.getElementById("searchInput");
+let searchButton = document.getElementById("searchButton");
+
+// Add the event listener to the search button
+searchButton.addEventListener("click", handleSearch);
+
+// Function to handle the search
+function handleSearch() {
+    const searchTerm = searchInput.value.trim(); // Get the value from the search input and remove any leading/trailing spaces
+    if (searchTerm === "") {
+        // If the search input is empty, show all hotels
+        Hotels(data);
+    } else {
+        // If there's a search term, fetch the search results from the server
+        fetch(`http://localhost:8888/searchHotel/${encodeURIComponent(searchTerm)}`)
+            .then(response => response.json())
+            .then(searchResults => {
+                // Call the Hotels function with the search results to display them
+                Hotels(searchResults);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+}

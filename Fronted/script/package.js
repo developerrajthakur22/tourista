@@ -104,7 +104,11 @@ packageViewers[i].addEventListener("click", (e) => {
                             console.error('Error:', error);
                         });
 
-                    alert("Product added to cart");
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Package Booked!',
+                            // You can add more customization options here
+                        });
                 });
         
                 Card.append(Image, Name, Description, Type, Cost, Booking, Booknow);

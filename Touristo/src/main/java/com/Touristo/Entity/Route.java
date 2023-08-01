@@ -23,6 +23,8 @@ public class Route {
 	
 	private String routeTo;
 	
+	private String timing;
+	
 	private LocalDate dateOfJourney;
 	
 	//@JsonIgnore
@@ -72,6 +74,14 @@ public class Route {
 
 	public void setBus_id(int bus_id) {
 		this.bus_id = bus_id;
+	}
+
+	public String getTiming() {
+		return timing;
+	}
+
+	public void setTiming(String timing) {
+		this.timing = timing;
 	}
 
 	

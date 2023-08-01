@@ -27,11 +27,12 @@ public class Bus {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Bus(String busType, int capacity, double fare) {
+	public Bus(String busType, int capacity, double fare, String travelAgency) {
 		super();
 		this.busType = busType;
 		this.capacity = capacity;
 		this.fare = fare;
+		this.travelAgency = travelAgency;
 	}
 
 	public String getBusType() {
@@ -66,4 +67,12 @@ public class Bus {
 		this.fare = fare;
 	}
 
+	public String getTravelAgency() {
+		return travelAgency;
+	}
+
+	public void setTravelAgency(String travelAgency) {
+		this.travelAgency = travelAgency;
+	}
+	
 }

@@ -275,5 +275,25 @@ public class UserServicesImpl implements UserServices{
 	    ticket.setBus(null);
 		ticketRepo.deleteById(ticketId);
 	}
+
+	@Override
+	public List<Hotel> searchFunction(String name) throws NotFoundException {
+		// TODO Auto-generated method stub
+		List<Hotel> hotels = hotelRepo.findHotelsByNameContaining(name);
+		if(hotels == null) {
+			throw new NotFoundException("No hotels found");
+		}
+		return hotels;
+	}
+
+	@Override
+	public List<Bus> searchBus(String name) throws NotFoundException {
+		// TODO Auto-generated method stub
+		List<Bus> buses = busRepo.findBusesByNameContaining(name);
+		if(buses==null) {
+			throw new NotFoundException("No bus Found");
+		}
+		return buses;
+	}
 	
 }

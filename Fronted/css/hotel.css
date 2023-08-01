@@ -48,12 +48,93 @@
     border-radius: 20px;
   }
 
-  .bookNow{
+  .bookNow {
+    display: inline-block;
+    width: 180px;
+    padding: 10px 20px;
     margin: 20px auto;
-    width: 40%;
-    border-radius: 20px;
+    color: white;
+    border: none;
+    border-radius: 30px;
     cursor: pointer;
-    font-size: 20px;
-    background-color: lawngreen;
-    color: darkblue;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #32CD32;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
   }
+  
+  /* Hover effect */
+  .bookNow:hover {
+    /* background-color: #58b9a5;  */
+    color: #007bff;
+    background-color: #c1ff8a;
+  }
+
+  /* dropdown */
+  /* Style for the dropdown container */
+.dropdown {
+  display: flex;
+  width: 400px;
+  /* margin: 20px; */
+  /* border: 2px solid black; */
+  margin-left: 120px;
+}
+
+/* Style for the label */
+.dropdown label {
+  font-size: 20px;
+  font-weight: bold;
+  width: 200px;
+  line-height: 2;
+  margin-bottom: 5px;
+}
+
+/* Style for the select dropdown */
+.dropdown select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  appearance: none; /* Remove default appearance */
+  width: 100%;
+}
+
+/* Style for the option elements */
+.dropdown option {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Style for the dropdown arrow */
+.dropdown select::after {
+  content: '\25BC'; /* Unicode down arrow character */
+  font-size: 12px;
+  padding: 0 5px;
+}
+
+/* Style when the dropdown is active */
+.dropdown select:focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+
+#searchButton {
+  border: none;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  background-color: #fff; /* Set the background color */
+  cursor: pointer; /* Show a pointer cursor on hover */
+}
+
+/* Optional: Style the icon inside the button */
+#searchButton i {
+  font-size: 20px;
+  color: #333; /* Set the icon color */
+}

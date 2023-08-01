@@ -24,6 +24,8 @@ public class Hotel {
 	
 	private String hotelAddress;
 	
+	private String city;
+	
 	private double rent;
 	
     private String status;
@@ -112,6 +114,16 @@ public class Hotel {
 
 	public void setBooking(Booking booking) {
 		this.booking = booking;
+	}
+
+
+	public String getCity() {
+		return city;
+	}
+
+
+	public void setCity(String city) {
+		this.city = city;
 	}
     
     
