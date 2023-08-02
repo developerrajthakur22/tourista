@@ -47,4 +47,8 @@ public interface UserServices {
     public void cancelTicket(int ticketId);
     
     public Route route(Route route);
+    
+    public List<Hotel> searchFunction(String name) throws NotFoundException;
+    
+    public List<Bus> searchBus(String name) throws NotFoundException;
 }

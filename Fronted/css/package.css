@@ -98,13 +98,27 @@
    border-radius: 20px;
 }
 
-.bookNow{
-    margin: 20px auto;
-    color: green;
-    width: 30%;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 20px;
-    background-color: lawngreen;
-    color: darkblue;
+
+.bookNow {
+  display: inline-block;
+  width: 180px;
+  padding: 10px 20px;
+  margin: 20px auto;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #32CD32;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.bookNow:hover {
+  /* background-color: #58b9a5;  */
+  color: #007bff;
+  background-color: #c1ff8a;
 }

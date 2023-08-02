@@ -37,10 +37,8 @@
     font-family: 'Dancing Script', cursive;
     font-family: 'Roboto', sans-serif;
   }
-  #container>div>button{
-    border-radius: 3px;
-    margin-top: 10px;
-  }
+
+  
 
   .busImage{
     height: 160px;
@@ -48,19 +46,33 @@
     border-radius: 20px;
   }
 
-  .bookNow{
+  .bookNow {
+    display: inline-block;
+    width: 180px;
+    padding: 10px 20px;
     margin: 20px auto;
-    color: green;
-    width: 30%;
-    border-radius: 20px;
+    color: white;
+    border: none;
+    border-radius: 30px;
     cursor: pointer;
-    font-size: 20px;
-    background-color: lawngreen;
-    color: darkblue;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #32CD32;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
   }
+  
+  /* Hover effect */
+  .bookNow:hover {
+    /* background-color: #58b9a5;  */
+    color: #007bff;
+    background-color: #c1ff8a;
+  }
+  
 
   /* route css */
-  .Routecontainer {
+  /* .Routecontainer {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -101,5 +113,110 @@
     display: flex;
     justify-content: center;
     /* //margin: 20px 0; */
-    padding: 20px 20px;
-  }
+    /* padding: 20px 20px; */
+  /* } */ 
+
+  /* new css */
+  /* Reset default margin and padding for elements */
+#Route, .Routecontainer {
+  margin: 0;
+  margin-top: 20px;
+  padding: 0;
+}
+
+/* Display all elements in a row */
+#Route {
+  width: 95%;
+  /* border: 2px solid; */
+  margin: 0 auto;
+  display: flex;
+  align-items: center; /* Vertically center the elements */
+  justify-content: center;
+}
+
+.Routecontainer {
+  display: flex;
+  align-items: center; /* Vertically center the label and input */
+  margin-right: 20px; /* Add some space between each container */
+}
+
+/* Style the labels */
+.Routecontainer label {
+  margin-right: 10px; /* Add some space between the label and input */
+}
+
+/* Style the input fields */
+.Routecontainer input[type="text"],
+.Routecontainer input[type="date"] {
+  padding: 5px 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Style the Go button */
+#goButton {
+  padding: 8px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#goButton:hover {
+  background-color: #45a049;
+}
+
+.custom-select {
+  display: inline-block;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+/* Style for the select dropdown arrow */
+.custom-select::after {
+  content: "\25BC"; /* Unicode for down arrow */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+/* Style for the select dropdown itself */
+.custom-select select {
+  appearance: none;
+  background-color: #f2f2f2;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 40px 8px 10px; /* Adjust padding as needed */
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  width: 200px; /* Adjust width as needed */
+}
+
+/* Style for the select dropdown options */
+.custom-select select option {
+  background-color: #fff;
+  color: #333;
+}
+
+
+/* search bus */
+#searchButton {
+  border: none;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  background-color: #fff; /* Set the background color */
+  cursor: pointer; /* Show a pointer cursor on hover */
+}
+
+/* Optional: Style the icon inside the button */
+#searchButton i {
+  font-size: 20px;
+  color: #333; /* Set the icon color */
+}

@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="./css/Bookings.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
 </head>
 <body>
     
@@ -52,6 +54,48 @@
 
     </div>
 
+<!-- Payment interface -->
+<!-- Add a button to open the payment interface -->
+<!-- <button id="openPaymentButton">Make Payment</button> -->
+
+<!-- Payment interface -->
+<div id="paymentModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closePayment">&times;</span>
+    <h2>Enter Payment Details</h2>
+    <form id="paymentForm">
+      <div class="form-row">
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" name="cardNumber" required>
+      </div>
+
+      <div class="form-row">
+        <label for="cardName">Cardholder Name:</label>
+        <input type="text" id="cardName" name="cardName" required>
+      </div>
+
+      <div class="form-row card-logos">
+        <img src="https://th.bing.com/th/id/OIP.CjQ-yJTynXn5prbGzfOV8wHaEo?w=262&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Visa">
+        <img src="https://th.bing.com/th/id/OIP.cSqCVRE_EP7ZcSx-9Iv8xAHaFj?w=224&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Mastercard">
+        <!-- Add more card company logos as needed -->
+      </div>
+
+      <div class="form-row">
+        <label for="cvv">CVV:</label>
+        <input type="password" id="cvv" name="cvv" required>
+      </div>
+
+      <!-- Add other payment details fields as needed -->
+
+      <button type="submit">Submit Payment</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
     <script src="./script/Bookings.js"></script>
 </body>
 </html>
