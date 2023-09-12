@@ -130,4 +130,15 @@ public class UserController {
     	return new ResponseEntity<Route>(r, HttpStatus.ACCEPTED);
     }
     
+    @GetMapping(value = "searchHotel/{name}")
+    public ResponseEntity<List<Hotel>> hotels(@PathVariable String name) throws NotFoundException{
+    	List<Hotel> hotels = userServices.searchFunction(name);
+    	return new ResponseEntity<List<Hotel>>(hotels, HttpStatus.OK);
+    }
+    
+    @GetMapping(value = "searchBus/{name}")
+    public ResponseEntity<List<Bus>> buses(@PathVariable String name) throws NotFoundException{
+    	List<Bus> buses = userServices.searchBus(name);
+    	return new ResponseEntity<List<Bus>>(buses, HttpStatus.OK);
+    }
 }

@@ -1,5 +1,6 @@
 function addBus(){
-    let type = document.getElementById("name").value;
+    let name = document.getElementById("name").value;
+    let type = document.getElementById("type").value;
     let capacity = document.getElementById("capacity").value;
     let fare = document.getElementById("fare").value;
 
@@ -9,6 +10,7 @@ function addBus(){
             "content-type" : "application/json"
         },
         body: JSON.stringify({
+            "travelAgency": name,
             "busType":type,
             "capacity":capacity,
             "fare":fare

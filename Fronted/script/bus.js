@@ -13,7 +13,7 @@ async function FetchData() {
     try {
         let res = await fetch(`http://localhost:8888/Buses`)
         res = await res.json()
-        console.log(res)
+       // console.log(res)
         Bus(res)
     } catch (err) {
         console.log("error", err)
@@ -57,7 +57,7 @@ function Bus(data) {
 
         // Call changeImage every 3 seconds (3000 milliseconds)
         setInterval(changeImage, 3000);
-
+        console.log(product)
         travel.textContent = product.travelAgency;
         travel.style.color = "#349390"
         Type.textContent = "Bus Type: " + product.busType;
@@ -68,7 +68,7 @@ function Bus(data) {
         Booknow.addEventListener("click", () => {
             routeId = localStorage.getItem("routeId");
             if (routeId == null) {
-                window.alert("Select route Id first");
+                Swal.fire('You will have to select the route first!')
             } else {
                 fetch(`http://localhost:8888/bookBus/${customerId}/${routeId}/${product.busId}`, {
                     method: 'POST',
@@ -79,11 +79,14 @@ function Bus(data) {
                     .then(response => response.json())
                     .then(data => {
                         // Handle the response from the API, if needed
-                        console.log(data);
                         if(data.message){
-                            window.alert("Please select the route first");
+                            Swal.fire('You will have to select the route first!')
                         }else{
-                            window.alert("Bus Booked");
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Ticket Booked!',
+                                // You can add more customization options here
+                            });
                         }
                     })
                     .catch(error => {
@@ -114,17 +117,33 @@ goButton.addEventListener('click', () => {
     const fromInput = document.getElementById('from').value;
     const whereInput = document.getElementById('where').value;
     const dateInput = document.getElementById('date').value;
-
-    // Add your logic here to handle the data, e.g., display in an alert or perform an action.
-    alert(`From: ${fromInput}\nWhere: ${whereInput}\nSelected Date: ${dateInput}`);
-
+    const timingSelect = document.getElementById("timing").value;
+    
+    if(fromInput=="" || whereInput=="" || dateInput=="" || timingSelect == "" ){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please select the route and date correctly!',
+            // footer: '<a href="">Why do I have this issue?</a>'
+          })
+    }else{
+        // Add your logic here to handle the data, e.g., display in an alert or perform an action.
+   // alert(`From: ${fromInput}\nWhere: ${whereInput}\nSelected Date: ${dateInput}`);
+    Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: `From: ${fromInput}\nWhere: ${whereInput}\nSelected Date: ${dateInput}`,
+        showConfirmButton: false,
+        timer: 1500
+    })
     let obj = {
         routeFrom: fromInput,
         routeTo: whereInput,
-        dateOfJourney: dateInput
+        dateOfJourney: dateInput,
+        timing: timingSelect
     }
-
-
+    
+    
     fetch('http://localhost:8888/route', {
         method: 'POST',
         headers: {
@@ -142,6 +161,45 @@ goButton.addEventListener('click', () => {
             // Handle any errors that occurred during the POST request
             console.error('Error:', error);
         });
-
-
+    }
 });
+
+// searching
+let searchInput = document.getElementById("searchInput");
+let searchButton = document.getElementById("searchButton");
+
+// Add the event listener to the search button
+searchButton.addEventListener("click", handleSearch);
+
+// Function to handle the search
+function handleSearch() {
+    const searchTerm = searchInput.value.trim(); // Get the value from the search input and remove any leading/trailing spaces
+    if (searchTerm === "") {
+        // If the search input is empty, show all hotels
+        Bus(data);
+    } else {
+        // If there's a search term, fetch the search results from the server
+        fetch(`http://localhost:8888/searchBus/${encodeURIComponent(searchTerm)}`)
+            .then(response => response.json())
+            .then(searchResults => {
+                // Call the Hotels function with the search results to display them
+                Bus(searchResults);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+}
+
+//  Sticky Navbar logic
+let navabar = document.getElementById("navbar")
+
+window.onscroll = function () {
+    if (window.pageYOffset >= 50) {
+        navabar.classList.add("sticky");
+        navabar.style.backgroundColor = "#2e9adb"
+    } else {
+        navabar.style.backgroundColor = ""
+        navabar.classList.remove("sticky")
+    }
+}
