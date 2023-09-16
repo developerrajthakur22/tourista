@@ -1,4 +1,4 @@
-# Online Trip Management System
+# Online Trip Management System (Tourista)
 
 ## Project Logo:
 ![image](https://github.com/developerrajthakur22/efficient-veil-6767/assets/121308092/28f5fe53-2248-441a-88e3-c843d58acdaf)
