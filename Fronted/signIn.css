@@ -133,3 +133,8 @@ hr{
     align-items: center;
     justify-content: center;
 }
+
+#logo{
+    width: 160px;
+    height: 80px;
+}

@@ -271,4 +271,7 @@ button[type="submit"]:hover {
 
 /* Add other custom styles as needed */
 
-
+#logo{
+    width: 160px;
+    height: 80px;
+}
